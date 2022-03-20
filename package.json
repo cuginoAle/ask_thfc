@@ -1,0 +1,14 @@
+{
+  "name": "ask-thfc",
+  "version": "1.0.0",
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.3.2",
+    "eslint": "^8.11.0"
+  }
+}
