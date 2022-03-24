@@ -5,13 +5,16 @@ import debounce from "../utils/debounce";
 
 export default (data: BASE_DATA) => {
   const searchBox = document.getElementById("query") as HTMLInputElement;
-  const form = searchBox.closest("form");
   const suggestions: HTMLElement = document.querySelector(
     "span.algolia-autocomplete"
   );
 
+  if (!searchBox || !suggestions) return;
+
+  const form = searchBox.closest("form");
+
   form.addEventListener("submit", (e) => {
-    window.dataLayer.push({
+    tracker({
       ...data,
       search_keyword: searchBox.value,
       search_type: "site_search",

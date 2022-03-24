@@ -1,3 +1,4 @@
+import outboundLink from "./events/outboundLink";
 import pageView from "./events/pageView";
 import searchBox from "./events/searchBox";
 import getPageData from "./utils/getPageData";
@@ -36,4 +37,5 @@ function __init__() {
 
   pageView(pageData);
   searchBox(pageData);
+  outboundLink(pageData);
 }

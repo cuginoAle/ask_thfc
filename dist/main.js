@@ -4,6 +4,18 @@ var $416cd8f1c0193c00$export$2e2bcd8739ae039 = (data)=>{
 };
 
 
+var $b7582d3f8e41c845$export$2e2bcd8739ae039 = (data)=>{
+    document.documentElement.addEventListener("click", (e)=>{
+        const anchor = e.target;
+        if (anchor.closest("a").origin !== location.origin) $416cd8f1c0193c00$export$2e2bcd8739ae039({
+            ...data,
+            event: "link_clicked"
+        });
+    });
+};
+
+
+
 var $77dc936101551cde$export$2e2bcd8739ae039 = (data)=>{
     $416cd8f1c0193c00$export$2e2bcd8739ae039({
         ...data,
@@ -27,10 +39,11 @@ var $6f0a4854ef98d5af$export$2e2bcd8739ae039 = $6f0a4854ef98d5af$var$debounce;
 
 var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
     const searchBox = document.getElementById("query");
-    const form = searchBox.closest("form");
     const suggestions = document.querySelector("span.algolia-autocomplete");
+    if (!searchBox || !suggestions) return;
+    const form = searchBox.closest("form");
     form.addEventListener("submit", (e)=>{
-        window.dataLayer.push({
+        $416cd8f1c0193c00$export$2e2bcd8739ae039({
             ...data,
             search_keyword: searchBox.value,
             search_type: "site_search",
@@ -120,6 +133,7 @@ function $882b6d93070905b3$var$__init__() {
     const pageData = $6e9626a2f720303e$export$2e2bcd8739ae039();
     $77dc936101551cde$export$2e2bcd8739ae039(pageData);
     $36779ff9cc53e47d$export$2e2bcd8739ae039(pageData);
+    $b7582d3f8e41c845$export$2e2bcd8739ae039(pageData);
 }
 
 
