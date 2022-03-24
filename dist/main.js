@@ -1,19 +1,76 @@
-var $77dc936101551cde$export$2e2bcd8739ae039 = ({ __user_name__: __user_name__ , ...rest })=>{
-    window.dataLayer.push({
-        event: "page_viewed",
-        login_status: __user_name__ ? "logged_in" : "guest",
-        ...rest
+var $416cd8f1c0193c00$export$2e2bcd8739ae039 = (data)=>{
+    console.log(data);
+    window.dataLayer.push(data);
+};
+
+
+var $77dc936101551cde$export$2e2bcd8739ae039 = (data)=>{
+    $416cd8f1c0193c00$export$2e2bcd8739ae039({
+        ...data,
+        event: "page_viewed"
     });
 };
 
 
-const $6e9626a2f720303e$var$dataKeys = [
-    "user-name"
-];
+
+const $6f0a4854ef98d5af$var$debounce = (callback, wait)=>{
+    let timeoutId = null;
+    return (...args)=>{
+        window.clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(()=>{
+            callback.apply(null, args);
+        }, wait);
+    };
+};
+var $6f0a4854ef98d5af$export$2e2bcd8739ae039 = $6f0a4854ef98d5af$var$debounce;
+
+
+var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
+    const searchBox = document.getElementById("query");
+    const form = searchBox.closest("form");
+    const suggestions = document.querySelector("span.algolia-autocomplete");
+    form.addEventListener("submit", (e)=>{
+        window.dataLayer.push({
+            ...data,
+            search_keyword: searchBox.value,
+            search_type: "site_search",
+            event: "content_searched"
+        });
+    });
+    // Options for the observer (which mutations to observe)
+    const config = {
+        attributes: true,
+        childList: false,
+        subtree: false
+    };
+    // let's not fire the event too often
+    const debouncedTeacker = $6f0a4854ef98d5af$export$2e2bcd8739ae039($416cd8f1c0193c00$export$2e2bcd8739ae039, 500);
+    // Callback function to execute when mutations are observed
+    const callback = function(mutationsList) {
+        for (const mutation of mutationsList)if (mutation.type === "attributes" && mutation.attributeName === "style") {
+            const showSuggestions = suggestions.style.display !== "none";
+            if (showSuggestions) debouncedTeacker({
+                ...data,
+                search_keyword: searchBox.value,
+                search_type: "site_search",
+                event: "content_searched"
+            });
+        }
+    };
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+    // Start observing the target node for configured mutations
+    observer.observe(suggestions, config);
+// // // Later, you can stop observing
+// // observer.disconnect();
+};
+
+
 const $6e9626a2f720303e$var$baseData = {
     crn: null,
     customer_id: null,
-    page_language: navigator.language.split("-")[0]
+    page_language: navigator.language.split("-")[0],
+    login_status: "guest"
 };
 var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
     const dataDiv = document.querySelector("#__za_data__");
@@ -24,9 +81,10 @@ var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
         return acc;
     }, {
     });
+    const { __user_name__: __user_name__ , ...rest } = data;
     return {
         ...$6e9626a2f720303e$var$baseData,
-        ...data
+        login_status: __user_name__ ? "logged_in" : "guest"
     };
 };
 
@@ -59,7 +117,9 @@ const $e0f8e7cf88064837$export$89c0607256d35f0a = (...msg)=>console.info(`%c${ms
 // End Google Tag Manager
 // init function to be called when the page is loaded
 function $882b6d93070905b3$var$__init__() {
-    $77dc936101551cde$export$2e2bcd8739ae039($6e9626a2f720303e$export$2e2bcd8739ae039());
+    const pageData = $6e9626a2f720303e$export$2e2bcd8739ae039();
+    $77dc936101551cde$export$2e2bcd8739ae039(pageData);
+    $36779ff9cc53e47d$export$2e2bcd8739ae039(pageData);
 }
 
 

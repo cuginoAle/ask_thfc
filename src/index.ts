@@ -1,4 +1,5 @@
 import pageView from "./events/pageView";
+import searchBox from "./events/searchBox";
 import getPageData from "./utils/getPageData";
 import { logError, logInfo } from "./utils/logger";
 declare global {
@@ -31,5 +32,8 @@ declare global {
 
 // init function to be called when the page is loaded
 function __init__() {
-  pageView(getPageData());
+  const pageData = getPageData();
+
+  pageView(pageData);
+  searchBox(pageData);
 }

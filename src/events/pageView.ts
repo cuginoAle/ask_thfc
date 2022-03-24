@@ -1,11 +1,9 @@
-import { BaseData } from "../utils/getPageData";
-interface LOGIN extends BaseData {
-  __user_name__?: string;
-}
-export default ({ __user_name__, ...rest }: LOGIN) => {
-  window.dataLayer.push({
+import { BASE_DATA } from "../utils/getPageData";
+import tracker from "../utils/tracker";
+
+export default (data: BASE_DATA) => {
+  tracker({
+    ...data,
     event: "page_viewed",
-    login_status: __user_name__ ? "logged_in" : "guest",
-    ...rest,
   });
 };
