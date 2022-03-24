@@ -3,7 +3,11 @@ import tracker from "../utils/tracker";
 
 export default (data: BASE_DATA) => {
   document.documentElement.addEventListener("click", (e) => {
-    const anchor = e.target as HTMLAnchorElement;
+    const el = e.target as HTMLAnchorElement;
+    const anchor = el.closest("a");
+
+    if (!anchor) return;
+
     if (anchor.closest("a").origin !== location.origin) {
       tracker({
         ...data,

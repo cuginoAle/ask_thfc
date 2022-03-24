@@ -6,7 +6,9 @@ var $416cd8f1c0193c00$export$2e2bcd8739ae039 = (data)=>{
 
 var $b7582d3f8e41c845$export$2e2bcd8739ae039 = (data)=>{
     document.documentElement.addEventListener("click", (e)=>{
-        const anchor = e.target;
+        const el = e.target;
+        const anchor = el.closest("a");
+        if (!anchor) return;
         if (anchor.closest("a").origin !== location.origin) $416cd8f1c0193c00$export$2e2bcd8739ae039({
             ...data,
             event: "link_clicked"
