@@ -4,14 +4,14 @@ var $416cd8f1c0193c00$export$2e2bcd8739ae039 = (data)=>{
 };
 
 
-var $b7582d3f8e41c845$export$2e2bcd8739ae039 = (data)=>{
-    document.documentElement.addEventListener("click", (e)=>{
-        const el = e.target;
-        const anchor = el.closest("a");
-        if (!anchor) return;
-        if (anchor.closest("a").origin !== location.origin) $416cd8f1c0193c00$export$2e2bcd8739ae039({
+var $ce6c689b1411fd2a$export$2e2bcd8739ae039 = (data)=>{
+    const form = document.getElementById("new_request");
+    if (!form) return;
+    const submitButton = form.querySelector("input[type='submit']");
+    if (submitButton) form.addEventListener("submit", (e)=>{
+        $416cd8f1c0193c00$export$2e2bcd8739ae039({
             ...data,
-            event: "link_clicked"
+            event: "contact_enquired"
         });
     });
 };
@@ -94,8 +94,7 @@ var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
         const value = element.innerText;
         if (value) acc[el.id] = value;
         return acc;
-    }, {
-    });
+    }, {});
     const { __user_name__: __user_name__ , ...rest } = data;
     return {
         ...$6e9626a2f720303e$var$baseData,
@@ -135,7 +134,9 @@ function $882b6d93070905b3$var$__init__() {
     const pageData = $6e9626a2f720303e$export$2e2bcd8739ae039();
     $77dc936101551cde$export$2e2bcd8739ae039(pageData);
     $36779ff9cc53e47d$export$2e2bcd8739ae039(pageData);
-    $b7582d3f8e41c845$export$2e2bcd8739ae039(pageData);
+    $ce6c689b1411fd2a$export$2e2bcd8739ae039(pageData);
+// This is not needed for now
+// outboundLink(pageData);
 }
 
 
