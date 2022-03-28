@@ -5,22 +5,25 @@ import debounce from "../utils/debounce";
 
 export default (data: BASE_DATA) => {
   const searchBox = document.getElementById("query") as HTMLInputElement;
+
+  if (searchBox) {
+    const form = searchBox.closest("form");
+
+    form.addEventListener("submit", (e) => {
+      tracker({
+        ...data,
+        search_keyword: searchBox.value,
+        search_type: "site_search",
+        event: "content_searched",
+      });
+    });
+  }
+
   const suggestions: HTMLElement = document.querySelector(
     "span.algolia-autocomplete"
   );
 
-  if (!searchBox || !suggestions) return;
-
-  const form = searchBox.closest("form");
-
-  form.addEventListener("submit", (e) => {
-    tracker({
-      ...data,
-      search_keyword: searchBox.value,
-      search_type: "site_search",
-      event: "content_searched",
-    });
-  });
+  if (!suggestions) return;
 
   // Options for the observer (which mutations to observe)
   const config = { attributes: true, childList: false, subtree: false };
@@ -55,6 +58,6 @@ export default (data: BASE_DATA) => {
   // Start observing the target node for configured mutations
   observer.observe(suggestions, config);
 
-  // // // Later, you can stop observing
-  // // observer.disconnect();
+  // // Later, you can stop observing
+  // observer.disconnect();
 };

@@ -41,17 +41,19 @@ var $6f0a4854ef98d5af$export$2e2bcd8739ae039 = $6f0a4854ef98d5af$var$debounce;
 
 var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
     const searchBox = document.getElementById("query");
-    const suggestions = document.querySelector("span.algolia-autocomplete");
-    if (!searchBox || !suggestions) return;
-    const form = searchBox.closest("form");
-    form.addEventListener("submit", (e)=>{
-        $416cd8f1c0193c00$export$2e2bcd8739ae039({
-            ...data,
-            search_keyword: searchBox.value,
-            search_type: "site_search",
-            event: "content_searched"
+    if (searchBox) {
+        const form = searchBox.closest("form");
+        form.addEventListener("submit", (e)=>{
+            $416cd8f1c0193c00$export$2e2bcd8739ae039({
+                ...data,
+                search_keyword: searchBox.value,
+                search_type: "site_search",
+                event: "content_searched"
+            });
         });
-    });
+    }
+    const suggestions = document.querySelector("span.algolia-autocomplete");
+    if (!suggestions) return;
     // Options for the observer (which mutations to observe)
     const config = {
         attributes: true,
@@ -76,15 +78,15 @@ var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
     const observer = new MutationObserver(callback);
     // Start observing the target node for configured mutations
     observer.observe(suggestions, config);
-// // // Later, you can stop observing
-// // observer.disconnect();
+// // Later, you can stop observing
+// observer.disconnect();
 };
 
 
 const $6e9626a2f720303e$var$baseData = {
     crn: null,
     customer_id: null,
-    page_language: document.documentElement.lang,
+    page_language: document.documentElement.lang.split("-")[0],
     login_status: "guest"
 };
 var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{

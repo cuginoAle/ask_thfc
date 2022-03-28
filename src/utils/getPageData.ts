@@ -8,7 +8,7 @@ interface BASE_DATA {
 const baseData: BASE_DATA = {
   crn: null,
   customer_id: null,
-  page_language: document.documentElement.lang, // navigator.language.split("-")[0],
+  page_language: document.documentElement.lang.split("-")[0], // navigator.language.split("-")[0],
   login_status: "guest",
 };
 export default (): BASE_DATA => {
