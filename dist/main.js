@@ -84,7 +84,7 @@ var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
 const $6e9626a2f720303e$var$baseData = {
     crn: null,
     customer_id: null,
-    page_language: navigator.language.split("-")[0],
+    page_language: document.documentElement.lang,
     login_status: "guest"
 };
 var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
