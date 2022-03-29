@@ -32,4 +32,6 @@ When a new version of the script needs to be deployed these are the steps to fol
 The script gets served through **GitHub Pages** and it is immediatly available at this address:  
 `https://cuginoale.github.io/ask_thfc/dist/script.js`
 
-**<u style="color:red;">THIS IS A TEMPORARY SOLUTION AND IT IS RECOMMENDED TO SERVE THIS FILE FROM A CDN OWNED BY THFC</u>**
+```diff
+- THIS IS A TEMPORARY SOLUTION AND IT IS RECOMMENDED TO SERVE THIS FILE FROM A CDN OWNED BY THFC
+```
