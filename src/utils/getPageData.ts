@@ -13,7 +13,6 @@ const baseData: BASE_DATA = {
 };
 export default (): BASE_DATA => {
   const dataDiv: HTMLDivElement = document.querySelector("#__za_data__");
-
   const data = Array.from(dataDiv.children).reduce<Record<string, string>>(
     (acc, el) => {
       const element = el as HTMLElement;
