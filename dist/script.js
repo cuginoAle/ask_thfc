@@ -67,8 +67,7 @@ var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
 // The GTM unique ID to use
 const $882b6d93070905b3$var$GTM_ID_DEV = "GTM-NZXZZXN";
 const $882b6d93070905b3$var$GTM_ID_PROD = "GTM-KFLTKXP";
-const $882b6d93070905b3$var$GTM_ID = $882b6d93070905b3$var$GTM_ID_PROD;
-console.log("process.env.NODE_ENV", "production");
+const $882b6d93070905b3$var$GTM_ID = $882b6d93070905b3$var$GTM_ID_DEV;
 // Google Tag Manager
 (function(w, d, s, l, i) {
     w[l] = w[l] || [];
