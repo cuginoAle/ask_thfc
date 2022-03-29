@@ -36,4 +36,7 @@ The script gets served through **GitHub Pages** and it is immediatly available a
 - THIS IS A TEMPORARY SOLUTION AND IT IS RECOMMENDED TO SERVE THIS FILE FROM A CDN OWNED BY THFC
 ```
 
-When the script will be moved to a different location please remember to update the file `document_head.hbs` in the Zendesk theme editor
+When the script will be moved to a different location please remember to update the file `document_head.hbs` in the Zendesk theme editor:
+
+![Screenshot 2022-03-29 at 13 00 42](https://user-images.githubusercontent.com/1298616/160597766-c7acdbc1-2da3-499d-b6e7-71924b6d1a2e.png)
+
