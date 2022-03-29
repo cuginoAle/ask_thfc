@@ -35,3 +35,5 @@ The script gets served through **GitHub Pages** and it is immediatly available a
 ```diff
 - THIS IS A TEMPORARY SOLUTION AND IT IS RECOMMENDED TO SERVE THIS FILE FROM A CDN OWNED BY THFC
 ```
+
+When the script will be moved to a different location please remember to update the file `document_head.hbs` in the Zendesk theme editor
