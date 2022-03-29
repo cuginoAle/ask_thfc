@@ -27,18 +27,6 @@ var $77dc936101551cde$export$2e2bcd8739ae039 = (data)=>{
 
 
 
-const $6f0a4854ef98d5af$var$debounce = (callback, wait)=>{
-    let timeoutId = null;
-    return (...args)=>{
-        window.clearTimeout(timeoutId);
-        timeoutId = window.setTimeout(()=>{
-            callback.apply(null, args);
-        }, wait);
-    };
-};
-var $6f0a4854ef98d5af$export$2e2bcd8739ae039 = $6f0a4854ef98d5af$var$debounce;
-
-
 var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
     const searchBox = document.getElementById("query");
     if (searchBox) {
@@ -52,34 +40,6 @@ var $36779ff9cc53e47d$export$2e2bcd8739ae039 = (data)=>{
             });
         });
     }
-    const suggestions = document.querySelector("span.algolia-autocomplete");
-    if (!suggestions) return;
-    // Options for the observer (which mutations to observe)
-    const config = {
-        attributes: true,
-        childList: false,
-        subtree: false
-    };
-    // let's not fire the event too often
-    const debouncedTeacker = $6f0a4854ef98d5af$export$2e2bcd8739ae039($416cd8f1c0193c00$export$2e2bcd8739ae039, 500);
-    // Callback function to execute when mutations are observed
-    const callback = function(mutationsList) {
-        for (const mutation of mutationsList)if (mutation.type === "attributes" && mutation.attributeName === "style") {
-            const showSuggestions = suggestions.style.display !== "none";
-            if (showSuggestions) debouncedTeacker({
-                ...data,
-                search_keyword: searchBox.value,
-                search_type: "site_search",
-                event: "content_searched"
-            });
-        }
-    };
-    // Create an observer instance linked to the callback function
-    const observer = new MutationObserver(callback);
-    // Start observing the target node for configured mutations
-    observer.observe(suggestions, config);
-// // Later, you can stop observing
-// observer.disconnect();
 };
 
 
