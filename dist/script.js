@@ -98,4 +98,4 @@ function $882b6d93070905b3$var$__init__() {
 }
 
 
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=script.js.map
