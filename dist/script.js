@@ -65,26 +65,26 @@ var $6e9626a2f720303e$export$2e2bcd8739ae039 = ()=>{
 
 
 // The GTM unique ID to use
-const $882b6d93070905b3$var$GTM_ID_DEV = "GTM-NZXZZXN";
-const $882b6d93070905b3$var$GTM_ID_PROD = "GTM-KFLTKXP";
-const $882b6d93070905b3$var$GTM_ID = $882b6d93070905b3$var$GTM_ID_DEV;
+const $882b6d93070905b3$var$GTM_ID_DEV = 'GTM-NZXZZXN';
+const $882b6d93070905b3$var$GTM_ID_PROD = 'GTM-KFLTKXP';
+const $882b6d93070905b3$var$GTM_ID = $882b6d93070905b3$var$GTM_ID_PROD;
 // Google Tag Manager
 (function(w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({
-        "gtm.start": new Date().getTime(),
-        event: "gtm.js"
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
     });
-    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != "dataLayer" ? "&l=" + l : "";
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
     j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     j.onload = ()=>{
         // logInfo("GTM loaded");
-        if (document.readyState === "complete") $882b6d93070905b3$var$__init__();
-        else window.addEventListener("load", $882b6d93070905b3$var$__init__);
+        if (document.readyState === 'complete') $882b6d93070905b3$var$__init__();
+        else window.addEventListener('load', $882b6d93070905b3$var$__init__);
     };
-    f.parentNode.insertBefore(j, f);
-})(window, document, "script", "dataLayer", $882b6d93070905b3$var$GTM_ID);
+    f.parentNode && f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', $882b6d93070905b3$var$GTM_ID);
 // End Google Tag Manager
 // init function to be called when the page is loaded
 function $882b6d93070905b3$var$__init__() {
